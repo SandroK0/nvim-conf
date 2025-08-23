@@ -1,10 +1,3 @@
-function ColorMyPencils(color)
-  color = color or 'rose-pine'
-
-  vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-  vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
-end
-
 return {
   {
     'EdenEast/nightfox.nvim',
@@ -17,10 +10,26 @@ return {
     name = 'rose-pine',
   },
   {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {
+      style = 'night', -- You can choose 'night', 'storm', 'day', or 'moon'
+      transparent = false, -- Set to true if you want a transparent background
+      styles = {
+        comments = { italic = false }, -- Disable italics for comments
+        keywords = { italic = false }, -- Disable italics for keywords
+        functions = { italic = false }, -- Disable italics for functions
+        variables = { italic = false }, -- Disable italics for variables
+      },
+    },
+  },
+  {
     'LazyVim/LazyVim',
     priority = 10000,
     config = function()
       vim.cmd.colorscheme 'vscode'
+      -- TransparentBg()
     end,
   },
 }

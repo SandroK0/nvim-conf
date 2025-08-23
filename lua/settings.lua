@@ -1,9 +1,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.opt.termguicolors = true
-vim.g.have_nerd_font = true
-
-
+vim.g.have_nerd_font = false
+vim.opt.list = false
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -63,7 +62,6 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
 vim.opt.listchars = {
   tab = '» ',
   trail = '·',
