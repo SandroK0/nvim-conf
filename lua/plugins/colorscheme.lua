@@ -9,6 +9,7 @@ return {
     'rose-pine/neovim',
     name = 'rose-pine',
   },
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
   {
     'folke/tokyonight.nvim',
     lazy = false,
@@ -28,8 +29,7 @@ return {
     'LazyVim/LazyVim',
     priority = 10000,
     config = function()
-      vim.cmd.colorscheme 'vscode'
-      -- TransparentBg()
+      vim.cmd.colorscheme 'catppuccin'
     end,
   },
 }

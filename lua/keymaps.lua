@@ -56,3 +56,5 @@ vim.keymap.set('n', '<A-Down>', ':move +1<CR>==', {
 vim.keymap.set('n', '<leader>e', '<cmd>Ex<CR>', {
   desc = 'Open Netrw file explorer',
 })
+
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, desc = 'Hover' })
