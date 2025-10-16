@@ -188,7 +188,6 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         clangd = {},
-        gopls = {},
         pyright = {},
         rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -277,34 +276,35 @@ return {
     },
     opts = {
       -- Move notify_on_error to formatting options
-      format_on_save = function(bufnr)
-        local ft = vim.bo[bufnr].filetype
-        -- Define filetypes to disable LSP formatting
-        local disable_lsp_for = {
-          c = true,
-          cpp = true,
-        }
-
-        return {
-          timeout_ms = 500,
-          lsp_fallback = not disable_lsp_for[ft],
-          quiet = true, -- Replaces notify_on_error = false
-        }
-      end,
-
+      -- format_on_save = function(bufnr)
+      --   local ft = vim.bo[bufnr].filetype
+      --   -- Define filetypes to disable LSP formatting
+      --   local disable_lsp_for = {
+      --     c = true,
+      --     cpp = true,
+      --   }
+      --
+      --   return {
+      --     timeout_ms = 500,
+      --     lsp_fallback = not disable_lsp_for[ft],
+      --     quiet = true, -- Replaces notify_on_error = false
+      --   }
+      -- end,
+      --
       formatters_by_ft = {
         lua = { 'stylua' },
         python = { 'autopep8' },
 
         -- Group related filetypes that share formatters
-        ['javascript'] = { { 'prettierd', 'prettier' } },
-        ['typescript'] = { { 'prettierd', 'prettier' } },
-        ['css'] = { { 'prettierd', 'prettier' } },
-        ['html'] = { { 'prettierd', 'prettier' } },
+        ['javascript'] = { 'prettierd', 'prettier' },
+        ['typescript'] = { 'prettierd', 'prettier' },
+        ['css'] = { 'prettierd', 'prettier' },
+        ['html'] = { 'prettierd', 'prettier' },
 
         php = { 'pretty-php' },
         go = { 'ast-grep' },
       },
+      stop_after_first = true,
 
       -- Add formatter-specific configurations
       formatters = {
