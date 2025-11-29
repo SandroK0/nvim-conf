@@ -37,7 +37,7 @@ return {
         hide_dotfiles = false,
         hide_gitignored = true,
       },
-      follow_current_file = true, -- Sync with the current file
+      follow_current_file = { enabled = true }, -- Sync with the current file
       hijack_netrw_behavior = 'open_default', -- Override netrw for a smoother experience
       window = {
         position = 'left', -- Position NeoTree on the left
